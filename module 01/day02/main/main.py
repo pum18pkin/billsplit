@@ -3,7 +3,6 @@ transactions = {}
 try:
     file = open("transactions.txt", "r")
 
-    # Step 1 & 2: Read file and build dictionary
     for line in file:
         name, amount = line.strip().split(",")
         amount = float(amount)
@@ -14,8 +13,6 @@ try:
             transactions[name] = amount
 
     file.close()
-
-    # Step 3: Print customers sorted by highest total
     print("Transaction Summary")
     print("-------------------")
 
@@ -23,7 +20,5 @@ try:
 
     for name, total in sorted_transaction:
         print(name, ":", total)
-
-# Step 4: Handle missing file
 except FileNotFoundError:
     print("Error: transactions.txt file not found.")
